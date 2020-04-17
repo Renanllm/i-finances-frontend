@@ -1,11 +1,13 @@
 import api from './api';
 
-const getMovements = (callback) => {
-  api.get('movements').then(callback);
+const getMovements = (callback, { limit, page = 1 }) => {
+  api.get('movements', {
+    params: { limit, page }
+  }).then(callback);
 }
 
 const getMovement = (idMovement, callback) => {
-  api.get(`movements/${idMovement}`).then(callback);
+  api.get(`movements/${idMovement}?`).then(callback);
 }
 
 const registerMovement = (movement, callback) => {

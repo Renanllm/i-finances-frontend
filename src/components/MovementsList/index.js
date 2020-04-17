@@ -8,13 +8,13 @@ import convertToCurrency from '../../utils/parseNumberToCurrency';
 import { Table } from 'react-bootstrap';
 import './styles.css'
 
-const MovementsList = ({ title }) => {
+const MovementsList = ({ title, limit }) => {
   const [movements, setMovements] = useState([]);
 
   const history = useHistory();
 
   useEffect(() => {
-    getMovements((response) => setMovements(response.data));
+    getMovements((response) => setMovements(response.data), { limit });
   }, []);
 
   const renderMovements = (movement) => {

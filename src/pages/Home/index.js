@@ -3,6 +3,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import BannerMessage from '../../components/BannerMessage';
 import MovementsList from '../../components/MovementsList';
+import BalanceView from '../../components/BalanceView';
 
 const Home = () => {
   return (
@@ -14,7 +15,10 @@ const Home = () => {
       </Row>
       <Row>
         <Col sm={6}>
-          <MovementsList />
+          <BalanceView />
+        </Col>
+        <Col sm={6}>
+          <MovementsList limit={3} />
         </Col>
       </Row>
     </>
