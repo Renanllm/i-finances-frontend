@@ -15,7 +15,7 @@ const MovementsList = ({ title, limit }) => {
 
   useEffect(() => {
     getMovements((response) => setMovements(response.data), { limit });
-  }, []);
+  }, [limit]);
 
   const renderMovements = (movement) => {
     return (

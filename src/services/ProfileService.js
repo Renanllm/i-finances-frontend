@@ -1,5 +1,14 @@
-const balance = 3000;
+import api from './api';
 
-const getBalance = () => balance;
+const getProfile = (callback) => {
+  api.get('profile').then(callback);
+};
 
-export { getBalance }
+const registerProfile = (profile, callback) => {
+  api.post('profile', profile).then(callback);
+}
+
+export {
+  getProfile,
+  registerProfile
+}
