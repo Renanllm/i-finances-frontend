@@ -22,7 +22,7 @@ const Routes = () => {
         <Switch>
           <Route path="/" exact={true}><Home /></Route>
           <Route path="/movements/" exact={true}>
-            <MovementsList title="Todas as Movimentações"/>
+            <MovementsList title="Todas as Movimentações" limit={20}/>
           </Route>
           <Route path="/movements/new"><MovementForm /></Route>
           <Route path="/movements/:idMovement">
