@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { Button, Col, Container, Form, InputGroup, Modal } from 'react-bootstrap';
 import { getProfile, registerProfile } from '../../services/ProfileService';
 import convertToCurrency from '../../utils/parseNumberToCurrency';
-
-import { Container, Button, Modal, Form, Col, InputGroup } from 'react-bootstrap';
 import './styles.css';
+
+
 
 const BalanceView = () => {
   const initForm = () => {
@@ -16,7 +16,7 @@ const BalanceView = () => {
   };
 
   const [form, setForm] = useState(initForm());
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState([]);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -52,7 +52,7 @@ const BalanceView = () => {
   return (
     <>
       <Container className="containerBalance d-flex align-center justify-content-center flex-column">
-        {profile.length < 1 ?
+        {profile.length === 0 ?
           noProfile() :
           <>
             <h3>
