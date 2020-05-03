@@ -16,9 +16,7 @@ const BalanceView = () => {
   };
 
   const [form, setForm] = useState(initForm());
-  const [profile, setProfile] = useState({
-    name: 'teste', balance: 0.0
-  });
+  const [profile, setProfile] = useState();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -26,11 +24,10 @@ const BalanceView = () => {
 
   useEffect(() => {
     getProfile((response) => {
-      if (response) {
-        setProfile(response.data);
-      }
+      setProfile(response.data);
+      console.log(profile);
     })
-  }, []);
+  }, [profile]);
 
   const setValor = (evento, campo) => {
     setForm({ ...form, [campo]: evento.target.value });
