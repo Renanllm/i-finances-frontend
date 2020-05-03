@@ -16,7 +16,7 @@ const BalanceView = () => {
   };
 
   const [form, setForm] = useState(initForm());
-  const [profile, setProfile] = useState();
+  const [profile, setProfile] = useState({});
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -53,7 +53,7 @@ const BalanceView = () => {
   return (
     <>
       <Container className="containerBalance d-flex align-center justify-content-center flex-column">
-        {profile != null ?
+        {profile === null ?
           noProfile() :
           <>
             <h3>
