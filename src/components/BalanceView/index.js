@@ -25,9 +25,8 @@ const BalanceView = () => {
   useEffect(() => {
     getProfile((response) => {
       setProfile(response.data);
-      console.log(profile);
     })
-  }, [profile]);
+  }, []);
 
   const setValor = (evento, campo) => {
     setForm({ ...form, [campo]: evento.target.value });
