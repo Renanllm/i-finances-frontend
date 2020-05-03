@@ -16,7 +16,9 @@ const BalanceView = () => {
   };
 
   const [form, setForm] = useState(initForm());
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState({
+    name: 'teste', balance: 0.0
+  });
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
