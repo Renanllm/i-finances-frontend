@@ -24,7 +24,9 @@ const BalanceView = () => {
 
   useEffect(() => {
     getProfile((response) => {
-      setProfile(response.data);
+      if (response) {
+        setProfile(response.data);
+      }
     })
   }, []);
 
