@@ -4,8 +4,6 @@ import { getProfile, registerProfile } from '../../services/ProfileService';
 import convertToCurrency from '../../utils/parseNumberToCurrency';
 import './styles.css';
 
-
-
 const BalanceView = () => {
   const initForm = () => {
     return {
@@ -16,7 +14,7 @@ const BalanceView = () => {
   };
 
   const [form, setForm] = useState(initForm());
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState(null);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
