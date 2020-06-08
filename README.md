@@ -30,3 +30,8 @@ yarn start
 ```
 npm start
 ```
+Ou, se tiver o Docker instalado: 
+
+```
+docker-compose up
+```
