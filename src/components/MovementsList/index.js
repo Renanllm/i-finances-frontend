@@ -8,7 +8,7 @@ import convertToCurrency from '../../utils/parseNumberToCurrency';
 import { Table } from 'react-bootstrap';
 import './styles.css'
 
-const MovementsList = ({ title, limit }) => {
+const MovementsList = ({ title, limit = 20 }) => {
   const [movements, setMovements] = useState([]);
 
   const history = useHistory();

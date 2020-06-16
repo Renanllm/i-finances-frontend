@@ -13,22 +13,41 @@ import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import MovementsList from './components/MovementsList';
 import MovementForm from './pages/MovementForm';
+import FormRegister from './pages/FormRegister';
+import Login from './pages/Login';
+
+import PrivateRoute from './components/PrivateRoute';
 
 const Routes = () => {
   return (
     <Router>
-      <Header />
+      <PrivateRoute component={Header} />
       <Container className="d-flex justify-content-center flex-column">
         <Switch>
-          <Route path="/" exact={true}><Home /></Route>
-          <Route path="/movements/" exact={true}>
-            <MovementsList title="Todas as Movimentações" limit={20}/>
+          {/* public routes */}
+          <Route path="/register" exact={true}>
+            <FormRegister />
           </Route>
-          <Route path="/movements/new"><MovementForm /></Route>
-          <Route path="/movements/:idMovement">
+          <Route path="/" exact={true}>
+            <Login />
+          </Route>
+
+          {/* private routes */}
+          <PrivateRoute exact={true} path="/home" component={Home} />
+          {/* <Route path="/home" exact={true}><Home /></Route> */}
+          <PrivateRoute exact={true} path="/movements" component={MovementsList} />
+          {/* <Route path="/movements/" exact={true}>
+            <MovementsList title="Todas as Movimentações" limit={20} />
+          </Route> */}
+          <PrivateRoute exact={true} path="/movements/new" component={MovementForm} />
+          {/* <Route path="/movements/new"><MovementForm /></Route> */}
+          <PrivateRoute exact={true} path="/movements/:idMovement" component={MovementForm} />
+          {/* <Route path="/movements/:idMovement">
             <MovementForm />
-          </Route>
+          </Route> */}
+          
           <Route path="*"><NotFound /></Route>
+
         </Switch>
       </Container>
     </Router>

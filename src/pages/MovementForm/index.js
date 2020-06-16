@@ -60,11 +60,11 @@ const MovementForm = () => {
     evento.preventDefault();
     if (idMovement === undefined) {
       registerMovement(form, () => {
-        history.push('/');
+        history.push('/home');
       });
     } else {
       updateMovement(idMovement, form, () => {
-        history.push('/');
+        history.push('/home');
       });
     }
   };
