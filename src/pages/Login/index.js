@@ -20,7 +20,7 @@ const Login = () => {
 
   useEffect(() => {
     logout();
-    history.push('/');
+    history.push('/login');
   }, []);
 
   const setValor = (evento, campo) => {
@@ -57,14 +57,10 @@ const Login = () => {
             </Form.Group>
           </Form.Row>
 
-          <Button
-            variant="primary"
-            className="mr-2"
-            type="submit"
-            onClick={() => history.push('/register')}
-            >
-            Cadastrar
+          <Button variant="outline-dark" type="button" onClick={() => history.push('/')}>
+            Voltar
           </Button>
+          &nbsp;
           <Button variant="success" type="submit">
             Login
           </Button>

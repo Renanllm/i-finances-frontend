@@ -8,12 +8,13 @@ import {
 
 import { Container } from 'react-bootstrap';
 
-import Header from './components/Header';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import MovementsList from './components/MovementsList';
+import Header from './components/Header';
 import MovementForm from './pages/MovementForm';
 import FormRegister from './pages/FormRegister';
+import FirstPage from './pages/FirstPage';
 import Login from './pages/Login';
 
 import PrivateRoute from './components/PrivateRoute';
@@ -21,14 +22,17 @@ import PrivateRoute from './components/PrivateRoute';
 const Routes = () => {
   return (
     <Router>
-      <PrivateRoute component={Header} />
+      <Header />
       <Container className="d-flex justify-content-center flex-column">
         <Switch>
           {/* public routes */}
+          <Route path="/" exact={true}>
+            <FirstPage />
+          </Route>
           <Route path="/register" exact={true}>
             <FormRegister />
           </Route>
-          <Route path="/" exact={true}>
+          <Route path="/login" exact={true}>
             <Login />
           </Route>
 

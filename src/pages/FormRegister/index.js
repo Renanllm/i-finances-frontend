@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
+import { logout } from '../../services/ProfileService';
 
 import { Form, Button, Col, Container, InputGroup } from 'react-bootstrap';
 import { registerProfile } from '../../services/ProfileService';
@@ -20,6 +21,11 @@ const FormRegister = () => {
   const [form, setForm] = useState(initForm());
   const history = useHistory();
 
+  useEffect(() => {
+    logout();
+    history.push('/register');
+  }, []);
+
   const setValor = (evento, campo) => {
     setForm({ ...form, [campo]: evento.target.value });
   };
@@ -28,7 +34,7 @@ const FormRegister = () => {
     evento.preventDefault();
 
     registerProfile(form, () => {
-      history.push('/');
+      history.push('/login');
     });
   };
 
@@ -70,7 +76,7 @@ const FormRegister = () => {
             </Form.Group>
           </Form.Row>
 
-          <Button variant="outline-dark" type="button" onClick={() => history.goBack()}>
+          <Button variant="outline-dark" type="button" onClick={() => history.push('/')}>
             Voltar
           </Button>
           &nbsp;
